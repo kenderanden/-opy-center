@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -107,13 +108,13 @@ namespace копировальный_центр
             {
                 Orders orders = listView.SelectedItems[0].Tag as Orders;
 
-                if (comboBoxКлиенты.SelectedIndex != null)
+                if (comboBoxКлиенты.Text != "")
                     orders.idClient = Convert.ToInt32(comboBoxКлиенты.SelectedItem.ToString().Split('.')[1]);
-                if (textBoxЗаказы.Text != null)
+                if (textBoxЗаказы.Text != "")
                     orders.Orders1 = textBoxЗаказы.Text;
-                if (textBoxАдрес.Text != null)
+                if (textBoxАдрес.Text != "")
                     orders.address = textBoxАдрес.Text;
-                if (textBoxЦена.Text != null)
+                if (textBoxЦена.Text != "")
                     orders.price = Convert.ToInt32(textBoxЦена.Text);
 
                 Program.база_данных.SaveChanges();
@@ -147,6 +148,17 @@ namespace копировальный_центр
         {
             обновить_клиенты();
             обновить_таблицу();
+        }
+
+        private void buttonСтатус_завершён_Click(object sender, EventArgs e)
+        {
+            if (listView.SelectedItems.Count == 1)
+            {
+                Orders orders = listView.SelectedItems[0].Tag as Orders;
+                orders.status = "Завершён";
+                Program.база_данных.SaveChanges();
+                обновить_таблицу();
+            }
         }
     }
 }

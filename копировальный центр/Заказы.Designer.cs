@@ -51,6 +51,7 @@
             this.textBoxПоиск = new System.Windows.Forms.TextBox();
             this.buttonПоиск = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.buttonСтатус_завершён = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -127,7 +128,7 @@
             // 
             // columnHeader2
             // 
-            this.columnHeader2.Text = "id клиекнта";
+            this.columnHeader2.Text = "id клиента";
             // 
             // columnHeader3
             // 
@@ -220,11 +221,22 @@
             this.toolTip1.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             this.toolTip1.ToolTipTitle = "Подсказка";
             // 
+            // buttonСтатус_завершён
+            // 
+            this.buttonСтатус_завершён.Location = new System.Drawing.Point(915, 25);
+            this.buttonСтатус_завершён.Name = "buttonСтатус_завершён";
+            this.buttonСтатус_завершён.Size = new System.Drawing.Size(75, 23);
+            this.buttonСтатус_завершён.TabIndex = 16;
+            this.buttonСтатус_завершён.Text = "Завершено";
+            this.buttonСтатус_завершён.UseVisualStyleBackColor = true;
+            this.buttonСтатус_завершён.Click += new System.EventHandler(this.buttonСтатус_завершён_Click);
+            // 
             // Заказы
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1017, 481);
+            this.Controls.Add(this.buttonСтатус_завершён);
             this.Controls.Add(this.buttonПоиск);
             this.Controls.Add(this.textBoxПоиск);
             this.Controls.Add(this.buttonDel);
@@ -270,5 +282,6 @@
         private System.Windows.Forms.TextBox textBoxПоиск;
         private System.Windows.Forms.Button buttonПоиск;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Button buttonСтатус_завершён;
     }
 }

@@ -6,9 +6,10 @@ using System.Windows.Forms;
 
 namespace копировальный_центр
 {
+   
     static class Program
     {
-        public static копировальныйцентр_x1Entities3 база_данных = new копировальныйцентр_x1Entities3();
+        public static копировальныйцентр_x1Entities4 база_данных = new копировальныйцентр_x1Entities4();
         /// <summary>
         /// Главная точка входа для приложения.
         /// </summary>

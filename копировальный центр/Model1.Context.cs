@@ -13,10 +13,10 @@ namespace копировальный_центр
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class копировальныйцентр_x1Entities3 : DbContext
+    public partial class копировальныйцентр_x1Entities4 : DbContext
     {
-        public копировальныйцентр_x1Entities3()
-            : base("name=копировальныйцентр_x1Entities3")
+        public копировальныйцентр_x1Entities4()
+            : base("name=копировальныйцентр_x1Entities4")
         {
         }
     

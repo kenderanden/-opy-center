@@ -30,6 +30,7 @@
         {
             this.buttonКлиенты = new System.Windows.Forms.Button();
             this.buttonЗаказы = new System.Windows.Forms.Button();
+            this.buttonUser = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // buttonКлиенты
@@ -52,11 +53,23 @@
             this.buttonЗаказы.UseVisualStyleBackColor = true;
             this.buttonЗаказы.Click += new System.EventHandler(this.buttonЗаказы_Click);
             // 
+            // buttonUser
+            // 
+            this.buttonUser.Enabled = false;
+            this.buttonUser.Location = new System.Drawing.Point(12, 98);
+            this.buttonUser.Name = "buttonUser";
+            this.buttonUser.Size = new System.Drawing.Size(198, 37);
+            this.buttonUser.TabIndex = 2;
+            this.buttonUser.Text = "Пользователи";
+            this.buttonUser.UseVisualStyleBackColor = true;
+            this.buttonUser.Click += new System.EventHandler(this.buttonUser_Click);
+            // 
             // Меню
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(222, 218);
+            this.ClientSize = new System.Drawing.Size(222, 95);
+            this.Controls.Add(this.buttonUser);
             this.Controls.Add(this.buttonЗаказы);
             this.Controls.Add(this.buttonКлиенты);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
@@ -72,5 +85,6 @@
 
         private System.Windows.Forms.Button buttonКлиенты;
         private System.Windows.Forms.Button buttonЗаказы;
+        private System.Windows.Forms.Button buttonUser;
     }
 }

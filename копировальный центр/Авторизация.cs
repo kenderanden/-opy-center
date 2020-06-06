@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace копировальный_центр
 {
-    public struct User
-    {
-        public string login;
-        public string password;
-        public string type;
-    }
     public partial class authorization : Form
     {
+        public struct User
+        {
+            public string login;
+            public string password;
+            public string type;
+        }
         public static User users = new User();
         public authorization()
         {
@@ -42,9 +42,13 @@ namespace копировальный_центр
                         break;
                     }
                 }
-                if(users.login == null)
+                if(users.login == null && users.type != "Недоступен")
                 {
                     MessageBox.Show("Пользователь не найден или данные введены не верно", "Инфо", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else if(users.type == "Недоступен")
+                {
+                    MessageBox.Show("Админ не подтвердил учётную запись","Инфо", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
@@ -53,6 +57,12 @@ namespace копировальный_центр
                     this.Hide();
                 }
             }
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Регистрация рег = new Регистрация();
+            рег.Show();
         }
     }
 }

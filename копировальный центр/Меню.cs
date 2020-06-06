@@ -15,6 +15,10 @@ namespace копировальный_центр
         public Меню()
         {
             InitializeComponent();
+            if(authorization.users.type == "admin") 
+            {  
+                this.Height = 181; buttonUser.Enabled = true;
+            }
         }
 
         private void buttonКлиенты_Click(object sender, EventArgs e)
@@ -32,6 +36,12 @@ namespace копировальный_центр
         {
             Заказы зак = new Заказы();
             зак.Show();
+        }
+
+        private void buttonUser_Click(object sender, EventArgs e)
+        {
+            Пользователи пол = new Пользователи();
+            пол.Show();
         }
     }
 }
