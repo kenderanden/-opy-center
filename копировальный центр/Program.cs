@@ -8,6 +8,7 @@ namespace копировальный_центр
 {
     static class Program
     {
+        public static копировальныйцентр_x1Entities3 база_данных = new копировальныйцентр_x1Entities3();
         /// <summary>
         /// Главная точка входа для приложения.
         /// </summary>

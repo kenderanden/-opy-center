@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.buttonAuthorization = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBoxlogin = new System.Windows.Forms.TextBox();
+            this.textBoxpass = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -45,20 +45,20 @@
             this.buttonAuthorization.UseVisualStyleBackColor = true;
             this.buttonAuthorization.Click += new System.EventHandler(this.buttonAuthorization_Click);
             // 
-            // textBox1
+            // textBoxlogin
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 25);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 2;
+            this.textBoxlogin.Location = new System.Drawing.Point(12, 25);
+            this.textBoxlogin.Name = "textBoxlogin";
+            this.textBoxlogin.Size = new System.Drawing.Size(100, 20);
+            this.textBoxlogin.TabIndex = 2;
             // 
-            // textBox2
+            // textBoxpass
             // 
-            this.textBox2.Location = new System.Drawing.Point(12, 64);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 3;
-            this.textBox2.UseSystemPasswordChar = true;
+            this.textBoxpass.Location = new System.Drawing.Point(12, 64);
+            this.textBoxpass.Name = "textBoxpass";
+            this.textBoxpass.Size = new System.Drawing.Size(100, 20);
+            this.textBoxpass.TabIndex = 3;
+            this.textBoxpass.UseSystemPasswordChar = true;
             // 
             // label1
             // 
@@ -85,11 +85,12 @@
             this.ClientSize = new System.Drawing.Size(124, 125);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxpass);
+            this.Controls.Add(this.textBoxlogin);
             this.Controls.Add(this.buttonAuthorization);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "authorization";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Авторизация";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -99,8 +100,8 @@
         #endregion
 
         private System.Windows.Forms.Button buttonAuthorization;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBoxlogin;
+        private System.Windows.Forms.TextBox textBoxpass;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
     }
