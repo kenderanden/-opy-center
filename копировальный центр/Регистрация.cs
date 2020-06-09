@@ -19,29 +19,33 @@ namespace копировальный_центр
 
         private void buttonReg_Click(object sender, EventArgs e)
         {
-            bool log = true;
-            foreach(Users users in Program.база_данных.Users)
+            try
             {
-                if(users.Login == textBoxlogin.Text)
+                bool log = true;
+                foreach (Users users in Program.база_данных.Users)
                 {
-                    log = false;
-                    MessageBox.Show("Пользователь с такин ником уже существует", "Инфо", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (users.Login == textBoxlogin.Text)
+                    {
+                        log = false;
+                        MessageBox.Show("Пользователь с такин ником уже существует", "Инфо", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+
+                if (textBoxlogin.Text != "" && textBoxpass.Text != "" && log)
+                {
+                    Users us = new Users();
+                    us.Login = textBoxlogin.Text;
+                    us.Password = textBoxpass.Text;
+                    us.Type = "Недоступен";
+                    Program.база_данных.Users.Add(us);
+                    Program.база_данных.SaveChanges();
+                    textBoxlogin.Text = "";
+                    textBoxpass.Text = "";
+                    MessageBox.Show("Регистрация успешно завершена", "Инфо", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
                 }
             }
-
-            if(textBoxlogin.Text != "" && textBoxpass.Text != "" && log)
-            {
-                Users us = new Users();
-                us.Login = textBoxlogin.Text;
-                us.Password = textBoxpass.Text;
-                us.Type = "Недоступен";
-                Program.база_данных.Users.Add(us);
-                Program.база_данных.SaveChanges();
-                textBoxlogin.Text = "";
-                textBoxpass.Text = "";
-                MessageBox.Show("Регистрация успешно завершена", "Инфо", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Close();
-            }
+            catch { }
         }
     }
 }

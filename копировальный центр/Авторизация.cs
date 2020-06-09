@@ -26,37 +26,41 @@ namespace копировальный_центр
 
         private void buttonAuthorization_Click(object sender, EventArgs e)
         {
-            if(textBoxlogin.Text == "" || textBoxpass.Text == "")
+            try
             {
-                MessageBox.Show("Введите данные", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else
-            {
-                foreach(Users user in Program.база_данных.Users)
+                if (textBoxlogin.Text == "" || textBoxpass.Text == "")
                 {
-                    if(textBoxlogin.Text == user.Login && user.Password == textBoxpass.Text)
-                    {
-                        users.login = user.Login;
-                        users.password = user.Password;
-                        users.type = user.Type;
-                        break;
-                    }
-                }
-                if(users.login == null && users.type != "Недоступен")
-                {
-                    MessageBox.Show("Пользователь не найден или данные введены не верно", "Инфо", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else if(users.type == "Недоступен")
-                {
-                    MessageBox.Show("Админ не подтвердил учётную запись","Инфо", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Введите данные", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    Меню menu = new Меню();
-                    menu.Show();
-                    this.Hide();
+                    foreach (Users user in Program.база_данных.Users)
+                    {
+                        if (textBoxlogin.Text == user.Login && user.Password == textBoxpass.Text)
+                        {
+                            users.login = user.Login;
+                            users.password = user.Password;
+                            users.type = user.Type;
+                            break;
+                        }
+                    }
+                    if (users.login == null && users.type != "Недоступен")
+                    {
+                        MessageBox.Show("Пользователь не найден или данные введены не верно", "Инфо", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else if (users.type == "Недоступен")
+                    {
+                        MessageBox.Show("Админ не подтвердил учётную запись", "Инфо", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        Меню menu = new Меню();
+                        menu.Show();
+                        this.Hide();
+                    }
                 }
             }
+            catch { }
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

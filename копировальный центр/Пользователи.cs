@@ -38,42 +38,50 @@ namespace копировальный_центр
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-            if (comboBoxType.SelectedItem != null && textBoxLogin.Text != null && textBoxPass.Text != null)
+            try
             {
-                try
+                if (comboBoxType.SelectedItem != null && textBoxLogin.Text != null && textBoxPass.Text != null)
                 {
-                    Users users = new Users();
+                    try
+                    {
+                        Users users = new Users();
 
-                    users.Login = textBoxLogin.Text;
-                    users.Password = textBoxPass.Text;
-                    users.Type = comboBoxType.SelectedItem.ToString();
+                        users.Login = textBoxLogin.Text;
+                        users.Password = textBoxPass.Text;
+                        users.Type = comboBoxType.SelectedItem.ToString();
 
-                    Program.база_данных.Users.Add(users);
-                    Program.база_данных.SaveChanges();
-                    обновить_таблицу();
+                        Program.база_данных.Users.Add(users);
+                        Program.база_данных.SaveChanges();
+                        обновить_таблицу();
+                    }
+                    catch { MessageBox.Show("Ошибка введённых данных или база данных не доступна"); }
                 }
-                catch { MessageBox.Show("Ошибка введённых данных или база данных не доступна"); }
+                else MessageBox.Show("Данные не выбраны", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            else MessageBox.Show("Данные не выбраны", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            catch { }
         }
 
         private void buttonEdit_Click(object sender, EventArgs e)
         {
-            if (listView.SelectedItems.Count == 1)
+            try
             {
-                Users users = listView.SelectedItems[0].Tag as Users;
+                if (listView.SelectedItems.Count == 1)
+                {
+                    Users users = listView.SelectedItems[0].Tag as Users;
 
-                if (textBoxLogin.Text != "")
-                    users.Login = textBoxLogin.Text;
-                if (textBoxPass.Text != "")
-                    users.Password = textBoxPass.Text;
-                if (comboBoxType.SelectedItem.ToString() != "")
-                    users.Type = comboBoxType.SelectedItem.ToString();
+                    if (textBoxLogin.Text != "")
+                        users.Login = textBoxLogin.Text;
+                    if (textBoxPass.Text != "")
+                        users.Password = textBoxPass.Text;
+                    if (comboBoxType.SelectedItem.ToString() != "")
+                        users.Type = comboBoxType.SelectedItem.ToString();
 
-                Program.база_данных.SaveChanges();
+                    Program.база_данных.SaveChanges();
 
-                обновить_таблицу();
+                    обновить_таблицу();
+                }
             }
+            catch { }
         }
 
         private void buttonDel_Click(object sender, EventArgs e)
@@ -115,6 +123,6 @@ namespace копировальный_центр
             }
         }
 
-       
+
     }
 }

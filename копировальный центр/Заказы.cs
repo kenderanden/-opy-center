@@ -104,23 +104,27 @@ namespace копировальный_центр
 
         private void buttonEdit_Click(object sender, EventArgs e)
         {
-            if (listView.SelectedItems.Count == 1)
+            try
             {
-                Orders orders = listView.SelectedItems[0].Tag as Orders;
+                if (listView.SelectedItems.Count == 1)
+                {
+                    Orders orders = listView.SelectedItems[0].Tag as Orders;
 
-                if (comboBoxКлиенты.Text != "")
-                    orders.idClient = Convert.ToInt32(comboBoxКлиенты.SelectedItem.ToString().Split('.')[1]);
-                if (textBoxЗаказы.Text != "")
-                    orders.Orders1 = textBoxЗаказы.Text;
-                if (textBoxАдрес.Text != "")
-                    orders.address = textBoxАдрес.Text;
-                if (textBoxЦена.Text != "")
-                    orders.price = Convert.ToInt32(textBoxЦена.Text);
+                    if (comboBoxКлиенты.Text != "")
+                        orders.idClient = Convert.ToInt32(comboBoxКлиенты.SelectedItem.ToString().Split('.')[1]);
+                    if (textBoxЗаказы.Text != "")
+                        orders.Orders1 = textBoxЗаказы.Text;
+                    if (textBoxАдрес.Text != "")
+                        orders.address = textBoxАдрес.Text;
+                    if (textBoxЦена.Text != "")
+                        orders.price = Convert.ToInt32(textBoxЦена.Text);
 
-                Program.база_данных.SaveChanges();
+                    Program.база_данных.SaveChanges();
 
-                обновить_таблицу();
+                    обновить_таблицу();
+                }
             }
+            catch { }
         }
 
         private void buttonDel_Click(object sender, EventArgs e)
